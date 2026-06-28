@@ -3,8 +3,8 @@
 I'm a second-year **Applied Data Analysis & Artificial Intelligence** student at **HSE University, Saint Petersburg**  
 at the **School of Informatics, Physics and Technology**, in partnership with **VK**.
 
-I’m focused on **Machine Learning**, **Data Science**, and **Deep Learning**:  
-from tabular ML, feature engineering and gradient boosting to PyTorch models, speech enhancement, and LLM/NLP experiments.
+I’m focused on **Machine Learning**, **Data Science**, and **Applied AI**:  
+from tabular ML, feature engineering and gradient boosting to PyTorch models, speech enhancement, RAG systems, OCR pipelines, and LLM-powered tools.
 
 Currently open to **ML / DS internship opportunities**.
 
@@ -13,9 +13,10 @@ Currently open to **ML / DS internship opportunities**.
 ## 🚀 What I'm working on
 
 - **Machine Learning / Data Science**: EDA, preprocessing, feature engineering, validation, metrics, gradient boosting, AutoML, ensembling
-- **Deep Learning**: PyTorch, training loops, custom losses, checkpoints, inference pipelines, Transformers, audio/speech models
-- **Applied AI**: local AI agents, NPC behavior, LLM/NLP, dialogue context and memory management
-- **Engineering**: Python, SQL/PostgreSQL, Git, Docker, Flask, REST APIs, Telegram Bot API
+- **Deep Learning**: PyTorch, training loops, checkpoints, inference pipelines, Transformers, audio/speech models
+- **LLM / RAG systems**: document parsing, OCR, chunking, embeddings, vector search, retrieval, answer generation with citations
+- **Applied AI tools**: AI assistants over private knowledge bases, handwritten notes processing, LaTeX lecture notes generation
+- **Engineering**: Python, SQL/PostgreSQL, Git, Docker, Flask, Streamlit, REST APIs, Telegram Bot API
 
 ---
 
@@ -24,21 +25,34 @@ Currently open to **ML / DS internship opportunities**.
 > Some repositories are currently private until coursework / hackathon defense.  
 > Public links and detailed READMEs will be added soon.
 
-### 🎮 Character.AI-like local NPC Agent for games — in progress
+### 📚 AI Study Assistant: RAG + handwritten notes to LaTeX lecture notes — in progress
 
-A local AI module for game NPCs: the character should respond in role, use dialogue history and game-world context, and preserve a consistent personality.
+An AI assistant for working with my university materials: PDF lectures, handwritten notes, course files, and personal study notes.
 
-**Architecture idea:**
+The system is designed to:
+
+- search through a private knowledge base
+- retrieve relevant fragments from lectures and notes
+- answer questions with citations
+- process handwritten materials
+- generate structured **LaTeX lecture notes** using my own template
+
+**Pipeline:**
 
 ```text
-character profile
-+ dialogue history
-+ game-world state
-→ response generation
-→ role / tone / consistency control
+PDFs / handwritten notes / course files
+→ document parsing + OCR
+→ chunking
+→ embeddings
+→ vector search
+→ retrieval
+→ LLM answer generation with citations
+→ LaTeX lecture notes generation
 ```
 
-**Focus:** LLM/NLP, local inference, prompt/data design, character profiles, dialogue context, memory management.
+**Focus:** RAG, semantic search, embeddings, vector databases, OCR/document preprocessing, LLM-based question answering, LaTeX generation.
+
+**Stack:** Python, LangChain, FAISS/Chroma, Streamlit, pypdf, OCR/preprocessing, LLM API, LaTeX.
 
 Repository: **private for now, link soon**
 
@@ -93,7 +107,7 @@ Built an end-to-end ML pipeline:
 
 Best holdout validation: **ROC-AUC 0.715**
 
-Repository / write-up: **private for now, link soon**
+Repository: [ml-project-adaai_VK_predict_hackathon](https://github.com/medlopi/ml-project-adaai_VK_predict_hackathon)
 
 ---
 
@@ -113,6 +127,21 @@ Repository: [tic-tac-toe-RL-HSE-ADA-AI](https://github.com/DmitryS-01/tic-tac-to
 
 ---
 
+### 📦 Ozon Tech “Robozon” — Computer Vision / Robotics Hackathon
+
+Team project for a CV-based solution aimed at automating sorting-center workflows and intelligent item sorting.
+
+My focus:
+
+- data and annotation pipeline
+- baseline approaches
+- metrics
+- experimental pipeline
+
+Repository / write-up: **private for now, link soon**
+
+---
+
 ## 🛠 Tech stack
 
 **Languages:** Python, C++, C  
@@ -126,8 +155,11 @@ Linear/Logistic Regression, Ridge/Lasso, SVM/SVR, kNN, Decision Trees, Random Fo
 **Deep Learning:**  
 PyTorch, CNN, RNN/LSTM, Transformers, attention mechanisms, audio/speech models, LLM/NLP basics
 
+**LLM / RAG:**  
+RAG, embeddings, vector search, chunking, reranking basics, OCR/document parsing, answer generation with citations, LaTeX generation
+
 **Engineering:**  
-SQL, PostgreSQL, Git, Linux CLI, Docker, Flask, REST API, Telegram Bot API
+SQL, PostgreSQL, Git, Linux CLI, Docker, Flask, Streamlit, REST API, Telegram Bot API, LaTeX
 
 ---
 
@@ -146,6 +178,17 @@ Relevant coursework:
 - Linear Algebra
 - Optimization
 - Algorithms and Data Structures
+- Databases
+- Python / C++ programming
+
+---
+
+## 🌱 A bit more about me
+
+- English: **B2**
+- Duolingo streak: **464 days**
+- Interested in **chess**, ML systems, applied AI tools, and building projects that are actually useful
+- Also built Telegram bots for catalogs, orders, notifications, and API integrations
 
 ---
 
