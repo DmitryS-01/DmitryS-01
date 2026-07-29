@@ -1,25 +1,15 @@
 # Hey, I'm Dmitry 👋
 
-I'm a **Machine Learning / Data Science** student at **HSE University, Saint Petersburg**  
-**Applied Data Analysis & Artificial Intelligence**, School of Informatics, Physics and Technology, in partnership with **VK**.
+I'm an **Applied Data Analysis & Artificial Intelligence** student at  
+**HSE University, Saint Petersburg**, School of Informatics, Physics and Technology, in partnership with **VK**.
 
-I build applied ML systems end-to-end: from messy tabular data, validation and gradient boosting to PyTorch models, speech enhancement, RAG/OCR pipelines, and LLM-powered tools.
+I work on applied Machine Learning projects: from EDA and model experiments to reproducible training pipelines, evaluation, Docker environments, and working demos.
 
-Currently open to **ML / DS internship opportunities**.
+Currently open to **Machine Learning / Data Science internship and Junior opportunities**.
 
 [![Telegram](https://img.shields.io/badge/Telegram-@legenda0008-26A5E4?logo=telegram&logoColor=white)](https://t.me/legenda0008)
 [![Email](https://img.shields.io/badge/Email-dvsorochan@edu.hse.ru-D14836?logo=gmail&logoColor=white)](mailto:dvsorochan@edu.hse.ru)
-[![GitHub](https://img.shields.io/badge/GitHub-DmitryS--01-181717?logo=github&logoColor=white)](https://github.com/DmitryS-01)
-
----
-
-## 🚀 Focus areas
-
-- **Machine Learning / Data Science:** EDA, preprocessing, leakage checks, validation design, metrics, feature engineering, feature selection, class imbalance, gradient boosting, AutoML, ensembling
-- **Deep Learning:** PyTorch, training loops, checkpoints, inference pipelines, CNN/RNN/LSTM, Transformers, attention mechanisms, audio/speech models
-- **LLM / RAG systems:** document parsing, OCR, chunking, embeddings, vector search, retrieval, answer generation with citations, LaTeX generation
-- **Applied AI tools:** AI assistants over private knowledge bases, handwritten notes processing, lecture notes generation, audio denoising apps
-- **Engineering:** Python, SQL/PostgreSQL, Git, Docker, Linux CLI, Flask, Streamlit, Gradio, REST APIs, Telegram Bot API
+[![Hugging Face](https://img.shields.io/badge/Hugging_Face-DmitryS--01-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/DmitryS-01)
 
 ---
 
@@ -30,172 +20,224 @@ Currently open to **ML / DS internship opportunities**.
 **Single-channel speech enhancement:**
 
 ```text
-noisy wav → enhanced wav
+noisy wav → STFT → neural network → ISTFT → enhanced wav
 ```
 
-Built a full deep learning pipeline for removing background noise from speech while preserving intelligibility.
+Built a complete Deep Learning pipeline for removing background noise from speech while preserving its intelligibility and natural sound.
 
 **What I implemented:**
 
 - STFT / ISTFT audio preprocessing and reconstruction
-- TF-domain encoder-decoder architecture
-- magnitude and phase denoising branches
+- time-frequency encoder-decoder architecture
+- separate magnitude and phase denoising branches
 - axial self-attention over time-frequency representations
 - bidirectional magnitude/phase cross-attention
-- training, validation checkpoint selection, full-test evaluation
-- inference app for uploading noisy audio and downloading enhanced audio
+- training, checkpoint selection, full-test evaluation, and batch inference
+- Docker environment and web application for model inference
 
-**Evaluation:** VoiceBank+DEMAND benchmark, with PESQ as the main metric and STOI / CSIG / CBAK / COVL / SSNR as additional metrics.
+**Experiments:**
 
-**Best results:**
+- trained models on **VoiceBank+DEMAND** and **MS-SNSD**
+- compared multiple model sizes, architectures, and training configurations
+- evaluated the models using PESQ, STOI, SI-SDR, CSIG, CBAK, COVL, and SSNR
 
-- **PESQ: 3.426** after adding MS-SNSD as an additional training dataset
-- **STOI: 0.959**
-- compact **CrossMP-Compact C88** model: ~**3.46M parameters**, **PESQ 3.3329** on VoiceBank+DEMAND
-- earlier full experiment tracked **PESQ 3.3563**, **STOI 0.9592**, **SI-SDR 19.85**
+**Best result:**
 
-**Stack:** Python, PyTorch, NumPy, audio preprocessing, STFT/ISTFT, Transformers/attention, Flask, Gradio, Hugging Face Spaces.
+- **PESQ: 3.426**
+- compact model: **~3.46M parameters**
+- result comparable with strong published speech enhancement models on the same benchmark
+
+The project is still being developed with the goal of preparing a research paper.
+
+**Stack:** Python, PyTorch, NumPy, STFT/ISTFT, attention mechanisms, Docker, Flask.
 
 Repository: [SpeechDenoising-DL](https://github.com/DmitryS-01/SpeechDenoising-DL)  
 Demo: [Hugging Face Space](https://huggingface.co/spaces/DmitryS-01/dlproject)
 
 ---
 
-### 🧩 VK Predict CMC Hackathon — Top-1 private-score result
+### 🧩 VK Predict CMC Hackathon
 
-Tabular ML competition focused on predicting the probability of a user performing a hidden target action.
+**High-dimensional tabular binary classification:**
 
-**Task:** binary classification / ranking  
-**Metric:** ROC-AUC
+```text
+data audit → EDA → feature engineering → validation
+→ model experiments → blending → submission
+```
 
-**Data:**
+The dataset contained:
 
-- **247,972** training rows
-- **106,274** test rows
-- **1,367** anonymized features
-- **1.35%** positive class rate
-- high noise, masked values, strong class imbalance
+- **247,972** training objects
+- **106,274** test objects
+- **1,367** anonymized and noisy features
+- only **1.35%** positive examples
+- almost no direct linear correlation between individual features and the target
 
-Built an end-to-end competition pipeline:
+**What I worked on:**
 
-- dataset audit and EDA
-- train/test leakage checks
-- missing values, noisy values and anomaly handling
-- almost-constant and low-informative feature filtering
-- feature-target analysis using correlation, single-feature AUC and LightGBM importance
-- multicollinearity and duplicate-feature checks
-- train/test distribution shift analysis
-- feature engineering: cluster distances/labels, PCA/SVD components, polynomial interactions, frequency and rank transformations, binary activity flags, `log1p` transforms
-- model training, tuning, refit and submission generation
-- blending and ensemble weight search
+- data audit and exploratory data analysis
+- missing values, noise, leakage, and train/test drift checks
+- feature engineering and feature selection
+- validation strategy and experiment tracking
+- model training and hyperparameter tuning
+- stacking, blending, and ensemble analysis
+- final refit and submission generation
 
 **Models tested:**
 
-- LightGBM, XGBoost, CatBoost, HistGradientBoosting
-- Random Forest, ExtraTrees
+- LightGBM
+- CatBoost
+- XGBoost
+- Random Forest
 - Logistic Regression
-- FLAML AutoML
-- TabM tabular deep learning baseline
+- FLAML
+- TabM
 
-**Best results:**
+**Results:**
 
-| Setup | ROC-AUC |
+| Approach | ROC-AUC |
 |---|---:|
-| Best single model: LightGBM | **0.69428** |
-| Blend: 2× LGBM + CatBoost | **0.70336** |
-| Blend: 2× LGBM + CatBoost + FLAML + TabM | **0.71358** |
-| Final power blend: 2× LGBM + CatBoost + FLAML + TabM + LogReg | **0.71513** |
+| Best single model | **0.69428** |
+| Best team blend | **0.71513** |
 
-Final blend exceeded the official top-1 leaderboard reference result of **0.71146**.
+**Stack:** Python, Pandas, Polars, NumPy, scikit-learn, LightGBM, CatBoost, XGBoost, FLAML, PyTorch.
 
-**Stack:** Python, Pandas, Polars, NumPy, scikit-learn, LightGBM, CatBoost, XGBoost, FLAML, Optuna, TabM, Jupyter.
-
-Repository: [VK_CMC_hackathon](https://github.com/DmitryS-01/VK_CMC_hackathon)
+Repository: [VK_CMC_hackathon](https://github.com/DmitryS-01/VK_CMC_hackathon)  
+Competition: [VK Predict CMC Hackathon](https://www.kaggle.com/competitions/vk-predict-cmc-hackathon)
 
 ---
 
-### 📚 AI Study Assistant: RAG + handwritten notes to LaTeX lecture notes — in progress
+### 📦 Ozon Tech RoboZon
 
-An AI assistant for working with my university materials: PDF lectures, handwritten notes, course files, and personal study notes.
-
-The system is designed to:
-
-- search through a private knowledge base
-- retrieve relevant fragments from lectures and notes
-- answer questions with citations
-- process handwritten materials
-- generate structured **LaTeX lecture notes** using my own template
-
-**Pipeline:**
+**Simulation-first Computer Vision and robotics prototype for item sorting.**
 
 ```text
-PDFs / handwritten notes / course files
-→ document parsing + OCR
-→ chunking
-→ embeddings
-→ vector search
-→ retrieval
-→ LLM answer generation with citations
-→ LaTeX lecture notes generation
+LiDAR / laser profiler → object dimensions
+three RGB views → cross-section classification
+measurements + CV output → sorting route
 ```
 
-**Focus:** RAG, semantic search, embeddings, vector databases, OCR/document preprocessing, LLM-based question answering, LaTeX generation.
+I proposed using **two independent measurement channels**:
 
-**Stack:** Python, LangChain, FAISS/Chroma, Streamlit, pypdf, OCR/preprocessing, LLM API, LaTeX.
+- LiDAR or a laser profiler for reliable physical dimensions
+- three RGB cameras for detecting whether an object has a circular cross-section
 
-Repository: **private for now, link soon**
+A rule engine combines both outputs and selects the appropriate sorting route.
+
+**What I implemented:**
+
+- procedural synthetic data generator
+- object-disjoint train/validation/test splits
+- multi-view image classification pipeline
+- comparison of five Computer Vision architectures
+- simulated LiDAR measurement channel
+- routing rules and structured model output
+- tests, Docker, JSON Schema, ONNX checks, and experiment configs
+
+**Synthetic demonstration dataset:**
+
+- **400 unique objects**
+- **2,000 three-view samples**
+- generated to demonstrate the system before real equipment and operational data became available
+
+**Best synthetic test result:**
+
+- **F1: 0.8916**
+- **ROC-AUC: 0.9743**
+- selected model: **EfficientNet-B0**
+
+**Stack:** Python, PyTorch, OpenCV, NumPy, scikit-learn, ONNX, Docker.
+
+Repository: [robozon](https://github.com/DmitryS-01/robozon)
 
 ---
 
-### 🤖 DQN for generalized MNK game with D-properties
+### 📚 AI Study Assistant
 
-Reinforcement learning project for a generalized tic-tac-toe-like environment.
+**RAG system for university lectures, course materials, and personal notes.**
 
-Implemented:
+```text
+PDF files and notes
+→ cleaning and chunking
+→ embeddings
+→ vector index
+→ relevant fragments
+→ structured answer / LaTeX notes
+```
 
-- game environment
-- state and action space
-- reward signal
-- Deep Q-Network agent
-- training loop
-- strategy evaluation
+The core retrieval pipeline is implemented; final integration and interface work are currently in progress.
 
-**Focus:** reinforcement learning, Q-learning, neural value approximation, game environments.
+**What the system does:**
+
+- processes PDF lectures and course materials
+- cleans and splits documents into searchable fragments
+- builds embeddings and a vector index
+- retrieves up to ten relevant fragments for a user query
+- handles typos, conversational wording, and paraphrased questions
+- combines information from several relevant sources
+- generates structured LaTeX lecture notes using my own template
+
+**Evaluation:**
+
+- prepared a local set of queries and relevant documents
+- retrieval quality is evaluated using **MAP@10**
+- experiments are checked on both direct and paraphrased queries
+
+**Stack:** Python, embeddings, vector search, PDF processing, LaTeX.
+
+Repository: **private for now**
+
+---
+
+### 🤖 Generalized MNK Game Research Platform
+
+A course research project for studying learning algorithms in generalized **M×N×K games with D-properties**.
+
+```text
+game configuration
+→ AI strategy
+→ automatic match series
+→ statistics and state analysis
+```
+
+**What we implemented:**
+
+- configurable game environment
+- human-vs-AI and AI-vs-AI modes
+- DQN agent
+- classical MCTS
+- AlphaZero-style approach
+- automated tournament series
+- experiment statistics and visualization
+- analysis and counting of unique game states
+
+The project won the course nomination for **“Most Scientific Project.”**
+
+**Stack:** Python, PyTorch, Reinforcement Learning, DQN, MCTS.
 
 Repository: [tic-tac-toe-RL-HSE-ADA-AI](https://github.com/DmitryS-01/tic-tac-toe-RL-HSE-ADA-AI)
 
 ---
 
-### 📦 Ozon Tech “Robozon” — Computer Vision / Robotics Hackathon
-
-Team project for a CV-based solution aimed at automating sorting-center workflows and intelligent item sorting.
-
-My focus:
-
-- data and annotation pipeline
-- baseline approaches
-- metrics
-- experimental pipeline
-
-Repository / write-up: **private for now, link soon**
-
----
-
 ## 🛠 Tech stack
 
-**Languages:** Python, C++, C  
+**Languages:**  
+Python, C++, C, SQL
 
-**ML / DS:** NumPy, Pandas, Polars, SciPy, scikit-learn, Statsmodels, Matplotlib, Plotly, Jupyter  
+**Machine Learning:**  
+scikit-learn, LightGBM, CatBoost, XGBoost, classification, regression, clustering, dimensionality reduction, recommender systems basics, time series basics
 
-**Models / methods:** Linear/Logistic Regression, Ridge/Lasso, SVM/SVR, kNN, Decision Trees, Random Forest, ExtraTrees, LightGBM, CatBoost, XGBoost, HistGradientBoosting, PCA/SVD, clustering, anomaly detection, recommender systems basics, uplift/time series basics  
+**Deep Learning:**  
+PyTorch, CNN, RNN/LSTM, Transformers, attention mechanisms, Computer Vision, speech and audio models
 
-**Deep Learning:** PyTorch, CNN, RNN/LSTM, Transformers, attention mechanisms, audio/speech models, tabular DL basics, LLM/NLP basics  
+**Data:**  
+NumPy, Pandas, Polars, SciPy, PostgreSQL, Jupyter
 
-**LLM / RAG:** RAG, embeddings, vector search, chunking, reranking basics, OCR/document parsing, answer generation with citations, LaTeX generation  
+**Engineering:**  
+Git, Linux, Docker, Flask, LaTeX
 
-**Optimization / AutoML:** Optuna, FLAML, validation strategy, model selection, ensembling, stacking, blending, threshold tuning  
-
-**Engineering:** SQL, PostgreSQL, Git, Linux CLI, Docker, Flask, Streamlit, Gradio, Hugging Face Spaces, REST API, Telegram Bot API, LaTeX
+**Systems:**  
+computer architecture, operating systems, processes, virtual memory, system calls, basic assembly
 
 ---
 
@@ -209,23 +251,29 @@ Relevant coursework:
 
 - Machine Learning
 - Deep Learning
-- Probability Theory
-- Mathematical Statistics
-- Numerical Methods
+- Mathematical Analysis
+- Probability Theory and Mathematical Statistics
+- Information Theory
 - Linear Algebra
 - Optimization
+- Numerical Methods
 - Algorithms and Data Structures
 - Databases
-- Python / C++ programming
+- Computer Architecture and Operating Systems
+
+Additional education:
+
+- **ML Start**
+- Stepik **Generation Python** courses
+- selected modules from the Yandex backend development course
 
 ---
 
 ## 🌱 A bit more about me
 
 - English: **B2**
-- Duolingo streak: **464 days**
-- Interested in **chess**, ML systems, applied AI tools, speech processing, and building projects that are actually useful
-- Also built Telegram bots for catalogs, orders, notifications, and API integrations
+- Duolingo streak: **495 days**
+- Interested in **chess**, mathematical problems, low-level systems, and understanding how software works under the hood
 
 ---
 
@@ -233,7 +281,7 @@ Relevant coursework:
 
 - Telegram: [@legenda0008](https://t.me/legenda0008)
 - Email: [dvsorochan@edu.hse.ru](mailto:dvsorochan@edu.hse.ru)
-- GitHub: [DmitryS-01](https://github.com/DmitryS-01)
+- Hugging Face: [DmitryS-01](https://huggingface.co/DmitryS-01)
 
 ---
 
