@@ -5,7 +5,7 @@ I'm an **Applied Data Analysis & Artificial Intelligence** student at
 
 I work on applied Machine Learning projects: from EDA and model experiments to reproducible training pipelines, evaluation, Docker environments, and working demos.
 
-Currently open to **Machine Learning / Data Science internship and Junior opportunities**.
+**Yandex Kinopoisk RecSys.**
 
 [![Telegram](https://img.shields.io/badge/Telegram-@legenda0008-26A5E4?logo=telegram&logoColor=white)](https://t.me/legenda0008)
 [![Email](https://img.shields.io/badge/Email-dvsorochan@edu.hse.ru-D14836?logo=gmail&logoColor=white)](mailto:dvsorochan@edu.hse.ru)
